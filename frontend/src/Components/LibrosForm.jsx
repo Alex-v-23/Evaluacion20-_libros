@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'      // Hooks de React para estado y efectos
 import { useNavigate } from 'react-router-dom'   // Para redirigir entre páginas
 import Sidebar from '../Components/Nav'          // Barra lateral de navegación
-import ConfirmModal from './ConfirmModal' // Modal de confirmación para eliminar
+import ConfirmModal from '../Components/ConfirmModal' // Modal de confirmación para eliminar
 
 const Students = () => {
   // ========== ESTADOS (variables que cambian y React vigila) ==========
@@ -57,8 +57,8 @@ const Students = () => {
           // 3. Transformar los datos de la API a nuestro formato
           // La API devuelve: { id, name, email, phone }
           // Nosotros necesitamos: { id, nombre, email, curso, edad, telefono }
-          const transformedData = apiData.slice(0, 5).map((post) => ({
-            userId: post.id,
+          const transformedData = apiData.slice(0, 10).map((post) => ({
+            userId: post.userId,
             id: post.id,
             title: post.title,
             body: post.body
@@ -149,7 +149,7 @@ const Students = () => {
           <div className="flex gap-2 text-sm text-gray-500">
             <span>Inicio</span>
             <span>/</span>
-            <span className="text-gray-800">Estudiantes</span>
+            <span className="text-gray-800">Libros</span>
           </div>
         </div>
 
@@ -182,6 +182,7 @@ const Students = () => {
                 <th className="border border-gray-300 px-3 py-2 text-left text-sm font-semibold">id</th>
                 <th className="border border-gray-300 px-3 py-2 text-left text-sm font-semibold">title</th>
                 <th className="border border-gray-300 px-3 py-2 text-left text-sm font-semibold">body</th>
+                <th className="border border-gray-300 px-3 py-2 text-left text-sm font-semibold">Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -199,6 +200,7 @@ const Students = () => {
                     <td className="border border-gray-300 px-3 py-2">{student.id}</td>
                     <td className="border border-gray-300 px-3 py-2">{student.title}</td>
                     <td className="border border-gray-300 px-3 py-2">{student.body}</td>
+                    
                     <td className="border border-gray-300 px-3 py-2">
                       {/* Botón Editar */}
                       <button onClick={() => {

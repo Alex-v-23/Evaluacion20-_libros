@@ -40,7 +40,7 @@ const Sidebar = () => {
               : 'text-gray-200 hover:bg-gray-600'
           }`}
         >
-          <span>Estudiantes</span>
+          <span>Libros</span>
         </Link>
       </nav>
 

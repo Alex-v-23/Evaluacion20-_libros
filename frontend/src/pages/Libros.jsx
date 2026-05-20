@@ -84,7 +84,7 @@ const Students = () => {
           // La API devuelve: id, name, email, phone
           // Nosotros necesitamos: id, nombre, email, curso, edad, telefono
           const transformedData = apiData.slice(0, 10).map((post) => ({
-            userId: post.id,
+            userId: post.userId,
             id: post.id,
             title: post.title,
             body: post.body
@@ -192,7 +192,7 @@ const Students = () => {
       s.id === editingStudent.id ? { ...data, id: s.id } : s
     ))
     
-    setSuccess('✓ Estudiante actualizado correctamente')
+    setSuccess('✓ Libro actualizado correctamente')
     setShowForm(false)       // Cerrar modal
     setEditingStudent(null)  // Limpiar estudiante en edición
     setTimeout(() => setSuccess(''), 3000)
@@ -207,7 +207,7 @@ const Students = () => {
     // Filtrar la lista: mantener SOLO los que NO tengan el ID a eliminar
     setStudents(students.filter(s => s.id !== studentToDelete))
     
-    setSuccess('✓ Estudiante eliminado correctamente')
+    setSuccess('✓ Libro eliminado correctamente')
     setShowDeleteConfirm(false)  // Cerrar modal de confirmación
     setStudentToDelete(null)     // Limpiar ID
     setTimeout(() => setSuccess(''), 3000)
@@ -263,6 +263,7 @@ const Students = () => {
                 <th className="border border-gray-300 px-3 py-2 text-left">id</th>
                 <th className="border border-gray-300 px-3 py-2 text-left">title</th>
                 <th className="border border-gray-300 px-3 py-2 text-left">body</th>
+                <th className="border border-gray-300 px-3 py-2 text-left">Acciones</th>
               </tr>
             </thead>
             
